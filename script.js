@@ -15,6 +15,11 @@ const score1El = document.getElementById('score--1'); //dummy element
 score0El.textContent = 0;
 score1El.textContent = 0;
 
+const infobtn = document.querySelector('.show-modal');
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const closemodal = document.querySelector('.close-modal');
+
 // const score = [0, 0]; //total scores that add up , 0th-index=0 player and 1st index=1st player ka score h
 // let currentScore = 0;
 // let activePlayer = 0;
@@ -66,13 +71,28 @@ function changePlayer() {
   player1El.classList.toggle('player--active');
 }
 
+//modal window functionality
+infobtn.addEventListener('click', function () {
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+});
+function closeModal() {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+}
+closemodal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal();
+});
+
 //Rolling dice functionality
 btnRoll.addEventListener('click', function () {
   if (playing) {
     //1. Generating a random dice roll
 
     const dice = Math.trunc(Math.random() * 6) + 1;
-    console.log(dice);
+    // console.log(dice);
 
     //2. Display the dice
 
@@ -101,7 +121,7 @@ btnHold.addEventListener('click', function () {
       score[activePlayer];
 
     //2.Check if players's score is>=100: finish the game else switch to next player:
-    if (score[activePlayer] >= 10) {
+    if (score[activePlayer] >= 100) {
       //finish
       playing = false;
       document
