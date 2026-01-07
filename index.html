@@ -8,6 +8,45 @@
     <title>Pig Game</title>
   </head>
   <body>
+    <button class="show-modal">&#x1F6C8; How to play</button>
+    <section class="modal hidden">
+      <button class="close-modal ">&times;</button>
+      <h1 class="modalh1">🎲 How to Play the Pig Game</h1>
+      <p>
+        The Pig Game is a simple two-player dice game where the goal is to be
+        the first player to reach 100 points.
+      </p>
+      <p>
+      <h2>Rules & Gameplay</h2>
+      <ol>
+        <li>Players take turns rolling a dice.</li>
+        <li>
+          On each turn, a player can roll the dice as many times as they want.
+        </li>
+        <li>Each roll (except 1) adds to the player’s current score.</li>
+        <li>
+          If the dice shows 1:
+          <ul>
+            <li>The player loses all points from the current turn.</li>
+            <li>The turn immediately passes to the other player.</li>
+          </ul>
+        </li>
+        <li>
+          A player can choose to “Hold” at any time:
+          <ul>
+            <li>The current score is added to their total score.</li>
+            <li>The turn passes to the other player.</li>
+          </ul>
+        </li>
+      </ol>
+      </p>
+      <p>
+        <h1 class="modalh1">🏆 Winning the Game</h1>
+        <p>The first player whose total score reaches 100 or
+        more wins the game.</p> 
+      </p>
+    </section>
+    <div class="overlay hidden"></div>
     <main>
       <section class="player player--0 player--active">
         <h2 class="name" id="name--0">Player 1</h2>
